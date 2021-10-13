@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .myform{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .myform form{
+            width: 300px;
+            height: auto;
+            padding: 20px;
+            box-shadow: 0px 0px 10px lightgray;
+        }
+        .myform form input,button{
+            padding: 10px;
+            width: 100%;
+            font-size: 0.8rem;
+            font-family: 'Roboto', sans-serif;
+            border: none;
+            border-radius: 5px;
+            background-color: #F9CF93;
+        }
+        .myform form input{
+            background-color: #334756;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .myform form input:focus{
+            outline: none;
+            border: none;
+        }
+        .myform .name, button, .password{
+            margin: 10px 0;
+        }
+        button{
+            cursor: pointer;
+            background-color: #091353;
+            font-size: 1.4rem;
+            border-radius: 4px;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+        .myform .logonSing{
+            display: flex;
+            
+        }
+        .myform .logonSing button{
+            width: 45%;
+            margin: 10px;
+            background-color: #6D9886;
+        }
+        .myform label{
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 2px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="myform" id="myform">
+
+        <!-- login -->
+        <form action="" id="form1">
+            <div class="logonSing">
+                <button id="login" style="background-color: #1C7947;">Login</button>
+                <button id="sign">Sign in</button>
+            </div>
+            <div class="name">
+                <div id="error"></div>
+                <label for="name">
+                    <label for="name">Username</label>
+                    <input type="text" id="myname">
+                </label>
+            </div>
+            <div class="password">
+                <label for="name">Password</label>
+                <input type="password" id="mypassword">
+            </div>
+            <button id="save">Login</button>
+        </form>
+
+        <!-- sign in -->
+        <form action="" id="form2" style="display: none;">
+            <div class="logonSing">
+                <button id="login">Login</button>
+                <button id="sign" style="background-color: #1C7947;">Sign in</button>
+            </div>
+            <div class="name">
+                <label for="name">
+                    <label for="name">Username</label>
+                    <input type="text" id="myname">
+                </label>
+            </div>
+            <div class="password">
+                <label for="name">Password</label>
+                <input type="password" id="mypassword">
+            </div>
+            <div class="password">
+                <label for="name">Confirm</label>
+                <input type="password" id="myconfirm">
+            </div>
+            <button id="save">create account</button>
+        </form>
+
+    </div>
+
+
+    <script>
+        let form1= document.getElementById('form1');
+        let form2= document.getElementById('form2');
+
+        let login = document.getElementById('login');
+        let sign = document.getElementById('sign');
+
+        //inputs value
+        let myname = document.getElementById('myname');
+        let mypassword = document.getElementById('mypassword');
+        let myconfirm = document.getElementById('myconfirm');
+
+
+        login.addEventListener('click',(e)=>{
+            e.preventDefault();
+            form1.style.display = 'none';
+            form2.style.display = 'block';
+        })
+
+        sign.addEventListener('click',(e)=>{
+            e.preventDefault();
+            form1.style.display = 'none';
+            form2.style.display = 'block';
+        })
+
+
+        let save = document.getElementById('save');
+        save.addEventListener('click',(e)=>{
+            e.preventDefault();
+            let createh2 = document.createElement('h2');
+            let error = document.getElementById('error');
+            error.append(createh2);
+            createh2.innerHTML = 'Please fill in the blanks';
+            createh2.style.background = 'red';
+            createh2.style.color = 'white';
+            createh2.style.fontSize = '1rem';
+            createh2.style.padding = '4px';
+            createh2.style.borderRadius = '4px'
+
+            setTimeout(()=>{
+                createh2.style.display = 'none'
+            },1000)
+        })
+
+
+    </script>
+
+
+</body>
+</html>
+
